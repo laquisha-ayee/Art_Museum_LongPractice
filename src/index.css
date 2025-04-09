@@ -1,1 +1,5 @@
 /* TODO: Add sitewide styles */
+.active {
+    font-weight: bold;
+    color: purple;
+}
