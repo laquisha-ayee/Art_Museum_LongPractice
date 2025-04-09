@@ -1,10 +1,7 @@
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import harvardArt from './data/harvardArt';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import GalleryNavigation from './components/GalleryNavigation';
-import { Outlet } from 'react-router-dom';
 import GalleryView from './components/GalleryView/GalleryView';
-
-
 
 
 function Layout() {
@@ -20,10 +17,10 @@ function Layout() {
 
 const router = createBrowserRouter([
   {
-    element: <Layout />, 
+    element: <Layout />,
     children: [
       {
-        path: "/", 
+        path: "/",
         element: (
           <>
             <h2>Harvard Art Museum</h2>
@@ -35,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/galleries/:galleryId",
-        element: <GalleryView />,
+        element: <GalleryView galleries={harvardArt.records} />, // Pass galleries prop here
       },
       {
         path: "*",
@@ -44,7 +41,6 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
 
 function App() {
   return <RouterProvider router={router} />;
